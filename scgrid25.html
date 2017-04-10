@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>舒尔特表</title>
+    <style type="text/css">
+        table.tftable {
+            font-size: 12px;
+            color: #333333;
+            border-width: 1px;
+            border-color: #729ea5;
+            border-collapse: collapse;
+        }
+
+        table.tftable th {
+            display: flex;
+            font-size: 12px;
+            background-color: #acc8cc;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #729ea5;
+            text-align: left;
+        }
+
+        table.tftable tr {
+            display: flex;
+            background-color: #d4e3e5;
+        }
+
+        table.tftable td {
+            font-size: 26px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #729ea5;
+            width: 100px;
+            height: 100px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 98%;
+            width: 98%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+
+<table id="sgrid" class="tftable" border="1">
+</table>
+
+</body>
+<script>
+    var table = document.getElementById('sgrid');
+    var arr = [];
+    var num = 25;
+    var sqt;
+    for (var i = 1; i < num + 1; i++) {
+        arr.push(i);
+    }
+    sortFunc = function () {
+        return Math.random() * 100 > 50;
+    };
+    for (var i = 0; i < 20; i++)
+        arr = arr.sort(sortFunc);
+    var k = 0;
+    sqt = Math.sqrt(num);
+    for (var i = 0; i < sqt; i++) {
+        var tr = document.createElement('tr');
+        table.appendChild(tr);
+        for (var j = 0; j < sqt; j++) {
+            var td = document.createElement('td');
+            td.innerHTML = arr[k].toString();
+            tr.appendChild(td);
+            k++;
+        }
+    }
+</script>
+</html>
