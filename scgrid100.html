@@ -67,7 +67,7 @@
         arr.push(i);
     }
     sortFunc = function () {
-        return Math.random() * 100 > 50;
+        return Math.random() * 100 - 50;
     };
     for (var i = 0; i < 20; i++)
         arr = arr.sort(sortFunc);
